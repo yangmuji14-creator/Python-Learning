@@ -75,42 +75,42 @@
 
 # ------------------列表 list 常用方法-------------------
 # 列表定义
-s = [65,90,88,65,90,100,209,72,145]
-print(s)
-
-# append()：在列表尾部添加元素
-s.append(188)
-print(s)
-
-
-# insert()：在指定索引之前，输入元素
-s.insert(2,80)
-print(s)
-
-
-# remove()：移除列表中第一个匹配到的元素
-s.remove(90)
-print(s)
-
-
-# pop()：删除列表中指定索引位置的元素并返回（如未指定，默认删除最后一个）
-e = s.pop(1)
-print(e)
-
-e = s.pop()
-print(e)
-
-print(s)
-
-
-# sort()：排序
-s.sort()
-print(s)
-
-
-# reverse()：反转列表元素
-s.reverse()
-print(s)
+# s = [65,90,88,65,90,100,209,72,145]
+# print(s)
+#
+# # append()：在列表尾部添加元素
+# s.append(188)
+# print(s)
+#
+#
+# # insert()：在指定索引之前，输入元素
+# s.insert(2,80)
+# print(s)
+#
+#
+# # remove()：移除列表中第一个匹配到的元素
+# s.remove(90)
+# print(s)
+#
+#
+# # pop()：删除列表中指定索引位置的元素并返回（如未指定，默认删除最后一个）
+# e = s.pop(1)
+# print(e)
+#
+# e = s.pop()
+# print(e)
+#
+# print(s)
+#
+#
+# # sort()：排序
+# s.sort()
+# print(s)
+#
+#
+# # reverse()：反转列表元素
+# s.reverse()
+# print(s)
 
 
 
@@ -122,10 +122,16 @@ num_list = []
 
 # 2.将用户输入的10个数字存入列表
 for a in range(1,11):
-    num_list = s.append(input(f"请输入第{a}个数字："))
+    num = int(input(f"请输入第{a}个数字："))
+    num_list.append(num)
+
+print(f"数字列表：",num_list)
+
 
 # 3.排序
 num_list.sort()
+print(f"排序后为：",num_list)
+
 
 #。输出最小值，最大值，品均值
 #最大值
@@ -134,7 +140,5 @@ print("最大值为：",num_list[9])
 #最小值
 print("最小值为：",num_list[0])
 
-#平均值
-i = 1
-for b in range(10):
-    print(num_list[i-1])
+#平均值 ----> sum()求和 ; len() 获取元素个数（列表的长度）
+print("平均值为：",sum(num_list) / len(num_list))
