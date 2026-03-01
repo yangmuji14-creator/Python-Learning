@@ -112,3 +112,29 @@ print(s)
 s.reverse()
 print(s)
 
+
+
+# ------------------列表 list 案例-------------------
+#案例1：请将用户输入的10个数字，存储到一个列表当中，并将列表中的数字进行排序，输出其中的最小值，最大值，和平均值
+
+# 1.定义列表
+num_list = []
+
+# 2.将用户输入的10个数字存入列表
+for a in range(1,11):
+    num_list = s.append(input(f"请输入第{a}个数字："))
+
+# 3.排序
+num_list.sort()
+
+#。输出最小值，最大值，品均值
+#最大值
+print("最大值为：",num_list[9])
+
+#最小值
+print("最小值为：",num_list[0])
+
+#平均值
+i = 1
+for b in range(10):
+    print(num_list[i-1])
