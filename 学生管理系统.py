@@ -58,7 +58,7 @@ while True:
                 print("学生不存在，请重新输入")
             else:
                 del student_info[student_name]
-            print(f"{student_name} 信息删除成功！")
+                print(f"{student_name} 信息删除成功！")
         case "4": # 查询学生信息
             enter = input("请输入需要查询的学生姓名：")
             if enter not in student_info:
@@ -71,21 +71,44 @@ while True:
                 print(f"英语：{student_info[enter]['english']}")
                 print()
         case "5": # 列出所有学生
-            for name, score in student_info.items():
-                print(name)
+            for name, s in student_info.items():
+                print(f"姓名：{name} | 语文：{s['chinese']} | 数学：{s['math']} | 英语：{s['english']}")
         case "6": # 统计班级成绩
+            if not student_info:
+                print("暂无数据，请录入后再统计！")
+                continue
+
+            # 集合整理
             class_chinese = []
             class_math = []
             class_english = []
+
             for name,score in student_info.items():
                 class_chinese.append(int(score['chinese']))
                 class_math.append(int(score['math']))
                 class_english.append(int(score['english']))
             totalScore = sum(class_chinese) + sum(class_math) + sum(class_english)
+
+            max_c = max(class_chinese)
+            max_m = max(class_math)
+            max_e = max(class_english)
+
+            names_c = []
+            names_m = []
+            names_e = []
+
+            for name,score in student_info.items():
+                if int(score['chinese']) == max_c:
+                    names_c.append(name)
+                if int(score['math']) == max_m:
+                    names_m.append(name)
+                if int(score['english']) == max_e:
+                    names_e.append(name)
+
             print(f"班级总分：{totalScore},班级品均分：{totalScore / len(class_chinese)}")
-            print(f"语文总分：{sum(class_chinese)},班级品均分：{sum(class_chinese) / len(class_chinese)}")
-            print(f"数学总分：{sum(class_math)},班级品均分：{sum(class_math) / len(class_math)}")
-            print(f"英语总分：{sum(class_english)},班级品均分：{sum(class_english) / len(class_english)}")
+            print(f"语文总分：{sum(class_chinese)},语文品均分：{sum(class_chinese) / len(class_chinese)}，最高分：{max_c},最高分获得者为：{names_c}")
+            print(f"数学总分：{sum(class_math)},数学品均分：{sum(class_math) / len(class_math)}，最高分：{max_m},最高分获得者为：{names_m}")
+            print(f"英语总分：{sum(class_english)},英语品均分：{sum(class_english) / len(class_english)}，最高分：{max_e},最高分获得者为：{names_e}")
 
         case "7": # 退出系统
             break
