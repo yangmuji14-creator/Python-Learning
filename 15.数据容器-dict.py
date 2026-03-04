@@ -83,21 +83,22 @@ while True:
 
 
     # 2.用户执行操作
-    choice = int(input("请选择要执行的操作(1-5)："))
+    choice = input("请选择要执行的操作(1-5)：")
 
     match choice:
-        case 1:  # 添加购物车
+        case "1":  # 添加购物车
             goods_name = input("请输入商品名称：")
-            goods_price = float(input("请输入商品价格："))
-            goods_num = int(input("请输入商品数量："))
-
             # 如果商品存在，则不执行添加，提示信息
             if goods_name in shopping_cart:
                 print("该商品已存在，请重新选择~")
-            else:
-                shopping_cart[goods_name] = {"price": goods_price, "num": goods_num}
-                print("商品添加完成！")
-        case 2:  # 修改购物车
+            continue
+            goods_price = float(input("请输入商品价格："))
+            goods_num = int(input("请输入商品数量："))
+
+            shopping_cart[goods_name] = {"price": goods_price, "num": goods_num}
+            print("商品添加完成！")
+
+        case "2":  # 修改购物车
             goods_name = input("请输入要修改的商品名称：")
             if goods_name not in shopping_cart:
                 print("商品不存在，请重新选择 ~")
@@ -107,7 +108,7 @@ while True:
             shopping_cart[goods_name] = {"price": goods_price, "num": goods_num}
             print("商品修改完成！")
 
-        case 3:  # 删除购物车
+        case "3":  # 删除购物车
             goods_name = input("请输入要删除的商品名称：")
             if goods_name not in shopping_cart:
                 print("商品不存在，请重新选择 ~")
@@ -115,10 +116,10 @@ while True:
                 del shopping_cart[goods_name]
             print("商品删除完成！")
 
-        case 4:  # 查询购物车
+        case "4":  # 查询购物车
             for m, n in shopping_cart.items():
                 print(f"商品名称：{m}\t 商品价格：{n['price']}\t 商品数量:{n['num']}")
-        case 5:  # 退出购物车
+        case "5":  # 退出购物车
             break
         case _:  # 匹配其他所有情况
             print("非法操作，不支持！！！")
