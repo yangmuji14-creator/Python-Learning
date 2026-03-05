@@ -58,3 +58,75 @@
 # print(n)
 
 
+# 函数的嵌套调用
+# 嵌套调用遵循栈结构，最后被调用的函数最先返回LIFO（Last In First Out，后进先出）
+# def function_a():
+#     print("a ... before")
+#     function_b()
+#     print("a ... after")
+#
+# def function_b():
+#     print("b ... before")
+#     function_c()
+#     print("b ... after")
+#
+# def function_c():
+#     print("c ... ")
+#
+# function_a()
+#
+# print("函数调用完毕 ~ ")
+
+
+"""
+案例：
+1．定义一个函数：根据传入的底和高计算三角形面积的函数（三角形面积=底*高/2）。
+2.定义一个函数：计算传入的字符串中元音字母的个数（元音字母为aeiouAEIOU）。
+3.定义一个函数：计算传入的班级学员高考成绩列表中成绩的最高分、最低分、平均分（保留1位小数），
+并返回。
+"""
+# 1．定义一个函数：根据传入的底和高计算三角形面积的函数（三角形面积=底*高/2）。
+def triangle_area(a,h):
+    """
+    通过三角形的底和高计算三角形的面积
+    :param a: 底
+    :param h: 高
+    :return: 三角形的面积
+    """
+    return a * h / 2
+
+# 2.定义一个函数：计算传入的字符串中元音字母的个数（元音字母为aeiouAEIOU）。
+def search_aeiou(x):
+    """
+    计算传入的字符串中元音字母的个数
+    :param x: 元音字母
+    :return: 元音字母个数
+    """
+    num = 0
+    for a in x:
+        if a in "aeiouAEIOU":
+            num += 1
+    return num
+
+
+# 3.定义一个函数：计算传入的班级学员高考成绩列表中成绩的最高分、最低分、平均分（保留1位小数）
+def max_min_average(students_score):
+    """
+    计算传入的班级学员高考成绩列表中成绩的最高分、最低分、平均分
+    :param students_score: 学生成绩表
+    :return: 最高分，最低分，平均分
+    """
+    score_1 = []
+    if type(students_score) == dict:
+        for score in students_score.values():
+            score_1.append(float(score))
+
+    elif type(students_score) == list:
+        for i in students_score:
+            score_1.append(i)
+
+    return max(score_1), min(score_1), round(sum(score_1) / len(score_1),1)
+
+s_list = [120,555,444,858,696,666,234,152,165,265,333,65,444,555,89,120]
+max_score,min_score,average_score = max_min_average(s_list)
+print(f"最高分：{max_score} 最低分：{min_score} 平均分：{average_score}")
