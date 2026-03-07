@@ -95,27 +95,29 @@
 # ---------------------------------- 函数 - 不定长参数（关键字参数 **kwargs --> 字典） ---------------------------------------
 # 注意：1.参数是以 "键=值" 形式传递的关键字参数，这些 "键=值" 参数都会被kwargs接受，并封装为一个字典类型
 #      2.kwargs只是约定俗成的变量名，并不是关键字，这里可以使用仍和合法的变量名（如：**options—）
-def cale_date(*args,**kwargs):
-    """
-    更具传入数据，计算这批数据的最小值，最大值，平均值
-    :param args: 不定长位置参数，需要计算这批数据
-    :param kwargs: 不定长关键字参数
-        round:保留小数个数
-        print：是否输出
-    :return:
-    """
-    min_date = min(args)
-    max_date = max(args)
-    avg_date = sum(args) / len(args)
+# def cale_date(*args,**kwargs):
+#     """
+#     更具传入数据，计算这批数据的最小值，最大值，平均值
+#     :param args: 不定长位置参数，需要计算这批数据
+#     :param kwargs: 不定长关键字参数
+#         round:保留小数个数
+#         print：是否输出
+#     :return:
+#     """
+#     min_date = min(args)
+#     max_date = max(args)
+#     avg_date = sum(args) / len(args)
+#
+#     if kwargs.get("round") is not None:
+#         avg_date = round(sum(args) / len(args),kwargs.get('round'))
+#
+#     if kwargs.get("print"):
+#         print(f"最大值：{max_date},最小值:{min_date},平均值：{avg_date}")
+#
+#     return min_date,max_date,avg_date
+#
+# # 调用函数
+# print(cale_date(2,7,9,10,45,round=3,print=True))
+# print(cale_date(2,7,9,10,45,88,65,99,85,120,155,164,4448,5,7,44,round=2,print=False))
 
-    if kwargs.get("round") is not None:
-        avg_date = round(sum(args) / len(args),kwargs.get('round'))
 
-    if kwargs.get("print"):
-        print(f"最大值：{max_date},最小值:{min_date},平均值：{avg_date}")
-
-    return min_date,max_date,avg_date
-
-# 调用函数
-print(cale_date(2,7,9,10,45,round=3,print=True))
-print(cale_date(2,7,9,10,45,88,65,99,85,120,155,164,4448,5,7,44,round=2,print=False))
