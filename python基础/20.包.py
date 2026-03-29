@@ -22,8 +22,8 @@
 
 
 # 2.导入模块中的功能
-from utils.my_var import NAME,PI
-from utils.my_fun import log_separator1 as log1
+from python基础.utils.my_var import NAME,PI
+from python基础.utils.my_fun import log_separator1 as log1
 
 print(NAME)
 print(PI)
